@@ -1,10 +1,8 @@
 using GraduationWork;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerWeapon : MonoBehaviour
@@ -12,7 +10,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private Transform _leftHand;
     [SerializeField] private Transform _rightHand;
-    [SerializeField] private Player _player;
+    [SerializeField] private Endurance _endurance;
 
     private Animator _animator;
     private Weapon _currentWeapon;
@@ -22,7 +20,6 @@ public class PlayerWeapon : MonoBehaviour
     public Transform LeftHand => _leftHand;
     public Transform RightHand => _rightHand;
 
-    public event UnityAction<float> EnduranceSpented;
     public event UnityAction<int> WeaponBuyed;
 
     private void Start()
@@ -31,25 +28,15 @@ public class PlayerWeapon : MonoBehaviour
         SetWeapon(_currentWeaponIndex);
     }
 
-    private void Update()
+    public void Attack()
     {
-        if (_player.CurrentHealth <= 0)
-            return;
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            if (_player.TryGetEndurance(_currentWeapon.EnduranceCasts) && _animator.GetBool(AnimatorController.Params.IsAttack) == false &&
-                EventSystem.current.IsPointerOverGameObject() == false)
-            {
-                _animator.SetTrigger(AnimatorController.Params.AttackTrigger);
-                EnduranceSpented?.Invoke(_currentWeapon.EnduranceCasts);
-            }
-        }
+        if (_endurance.TryReduceEndurance(_currentWeapon.EnduranceCasts))
+            _animator.SetTrigger(AnimatorController.Params.AttackTrigger);
     }
 
     public void NextWeapon()
     {
-        if(_currentWeaponIndex + 1 <= _weapons.Count - 1)
+        if (_currentWeaponIndex + 1 <= _weapons.Count - 1)
             _currentWeaponIndex++;
         else
             _currentWeaponIndex = 0;
@@ -69,7 +56,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void SetWeapon(int index)
     {
-        if(_currentWeapon != null)
+        if (_currentWeapon != null)
             _currentWeapon.gameObject.SetActive(false);
 
         _currentWeapon = _weapons[index];
@@ -79,9 +66,9 @@ public class PlayerWeapon : MonoBehaviour
         _currentWeapon.Init(this);
     }
 
-    public void TryBuyWeapon(Weapon weapon)
+    public void TryBuyWeapon(Weapon weapon, PlayerWallet playerWallet)
     {
-        if (weapon.Price <= _player.Coins)
+        if (weapon.Price <= playerWallet.Coins)
         {
             var coincidences = _weapons.Where(w => w.Label == weapon.Label).Count();
 
@@ -89,20 +76,12 @@ public class PlayerWeapon : MonoBehaviour
             {
                 Weapon weapon1 = Instantiate(weapon, transform);
                 _weapons.Add(weapon1);
-                WeaponBuyed?.Invoke(weapon.Price);
+                playerWallet.ReduceCoins(weapon.Price);
             }
         }
     }
 
-    //public void BuyWeapon(Weapon weapon)
-    //{
-    //    Weapon weapon1 = Instantiate(weapon, transform);
-    //    _weapons.Add(weapon1);
-
-    //    WeaponBuyed?.Invoke(weapon.Price);
-    //}
-
-    public void ResetWeapon()
+    public void Restart()
     {
         if (_weapons.Count > 1)
         {

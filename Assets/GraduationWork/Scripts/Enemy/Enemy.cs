@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
-    [SerializeField] private EnemyStateMachine _enemyStateMachine;
+    [SerializeField] private StateMachine _enemyStateMachine;
 
     private float _currentHealth;
     private Animator _animator;

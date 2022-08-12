@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class CoinBar : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerWallet _playerWallet;
     [SerializeField] private TMP_Text _coins;
 
     private void OnEnable()
     {
-        _player.CoinsChanged += OnChangedCoins;
-        OnChangedCoins(_player.Coins);
+        _playerWallet.CoinsChanged += OnChangedCoins;
+        OnChangedCoins(_playerWallet.Coins);
     }
 
     private void OnDisable()
     {
-        _player.CoinsChanged -= OnChangedCoins;
+        _playerWallet.CoinsChanged -= OnChangedCoins;
     }
 
     private void OnChangedCoins(int value)

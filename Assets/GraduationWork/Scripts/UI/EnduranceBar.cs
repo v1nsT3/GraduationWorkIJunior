@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnduranceBar : Bar
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private Endurance _endurance;
 
     private void OnEnable()
     {
-        _player.ChangeEndurance += OnChangeValue;
+        _endurance.ChangedValue += OnChangeValue;
     }
 
     private void OnDisable()
     {
-        _player.ChangeEndurance -= OnChangeValue;
+        _endurance.ChangedValue -= OnChangeValue;
     }
 }

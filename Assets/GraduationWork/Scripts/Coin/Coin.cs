@@ -22,9 +22,9 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Player player))
+        if (other.TryGetComponent(out PlayerWallet playerWallet))
         {
-            player.AddCoins(_reward);
+            playerWallet.AddCoins(_reward);
 
             DestroyCoin();
         }

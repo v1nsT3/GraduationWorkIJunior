@@ -524,7 +524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.86600006, y: 0.84087133}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 28.5, y: 27.549}
+  m_AnchoredPosition: {x: 28.5, y: 27.54895}
   m_SizeDelta: {x: 57.368286, y: 55.0988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &340886626
@@ -769,7 +769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3022675, y: 0.423}
   m_AnchorMax: {x: 0.7002442, y: 0.57900006}
-  m_AnchoredPosition: {x: -0.50006104, y: -0.5}
+  m_AnchoredPosition: {x: -0.5, y: -0.5}
   m_SizeDelta: {x: -1.428299, y: -0.28479767}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365709056
@@ -1417,7 +1417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10675584, y: 0.785}
   m_AnchorMax: {x: 0.527, y: 0.878}
-  m_AnchoredPosition: {x: -0.538147, y: -0.5}
+  m_AnchoredPosition: {x: -0.5383301, y: -0.5}
   m_SizeDelta: {x: 2.618805, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575422865
@@ -1666,7 +1666,7 @@ MonoBehaviour:
   _colorMaxValue: {r: 0.19215687, g: 0.2784314, b: 1, a: 1}
   _colorMinValue: {r: 0, g: 0.9528302, b: 0.9329435, a: 1}
   _image: {fileID: 1980805493}
-  _player: {fileID: 3759593533208862030}
+  _endurance: {fileID: 3759593533208862036}
 --- !u!114 &593573062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,7 +2065,7 @@ MonoBehaviour:
   _colorMaxValue: {r: 0.8196079, g: 0.5058824, b: 0.5803922, a: 1}
   _colorMinValue: {r: 0.9622642, g: 0.013616921, b: 0.013616921, a: 1}
   _image: {fileID: 851755856}
-  _player: {fileID: 3759593533208862030}
+  _health: {fileID: 3759593533208862035}
 --- !u!114 &643345260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2602,7 +2602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.42900002}
   m_AnchorMax: {x: 0.698, y: 0.57900006}
-  m_AnchoredPosition: {x: 0.49993896, y: -2}
+  m_AnchoredPosition: {x: 0.49987793, y: -2}
   m_SizeDelta: {x: -1.428299, y: 2.7152023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771826772
@@ -3179,7 +3179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.5952759, y: -1.5572052}
+  m_AnchoredPosition: {x: 2.5952148, y: -1.55719}
   m_SizeDelta: {x: -50.8677, y: -40.4865}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880361230
@@ -4684,7 +4684,7 @@ MonoBehaviour:
   - {fileID: 486647933}
   _waves:
   - Enemy: {fileID: 7243478065256138179, guid: ef0ddb2162f200542bf04522dd73ece5, type: 3}
-    Count: 2
+    Count: 10
     Delay: 2
   - Enemy: {fileID: 7243478065256138179, guid: ef0ddb2162f200542bf04522dd73ece5, type: 3}
     Count: 4
@@ -4734,7 +4734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.30651167, y: 0.36}
   m_AnchorMax: {x: 0.70000005, y: 0.4866593}
-  m_AnchoredPosition: {x: -1.5000305, y: -1}
+  m_AnchoredPosition: {x: -1.5, y: -1}
   m_SizeDelta: {x: 0.57170105, y: 0.71520233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1163463838
@@ -4958,7 +4958,7 @@ MonoBehaviour:
   - {fileID: 1672455138915899190, guid: e522b588aa054f248b361efa52f5aa84, type: 3}
   - {fileID: 1024432457307686327, guid: 992973cd1aae1d844ba72f962f233aef, type: 3}
   _weaponView: {fileID: 1180025946636197545, guid: 7490043bc818e5d43bfdb601b7e1354d, type: 3}
-  _playerWeapon: {fileID: 3759593533208862034}
+  _player: {fileID: 3759593533208862030}
 --- !u!114 &1240567696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5055,7 +5055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.55719, y: -0.5189972}
+  m_AnchoredPosition: {x: -1.5571289, y: -0.5189972}
   m_SizeDelta: {x: -48.7916, y: -42.5627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1242677313
@@ -5308,7 +5308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d40a62ca7bf5041bd473251ee3548d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 3759593533208862030}
+  _playerWallet: {fileID: 3759593533208862037}
   _coins: {fileID: 962505374}
 --- !u!114 &1341498794
 MonoBehaviour:
@@ -5580,7 +5580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10675584, y: 0.785}
   m_AnchorMax: {x: 0.527, y: 0.878}
-  m_AnchoredPosition: {x: -0.538147, y: -0.5}
+  m_AnchoredPosition: {x: -0.5383301, y: -0.5}
   m_SizeDelta: {x: 2.618805, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370587884
@@ -5925,7 +5925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.83392334, y: -2.501999}
+  m_AnchoredPosition: {x: 0.83392334, y: -2.5019836}
   m_SizeDelta: {x: -75.0586, y: -48.3711}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1486344102
@@ -6276,7 +6276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10675584, y: 0.785}
   m_AnchorMax: {x: 0.527, y: 0.878}
-  m_AnchoredPosition: {x: -0.538147, y: -0.5}
+  m_AnchoredPosition: {x: -0.5383301, y: -0.5}
   m_SizeDelta: {x: 2.618805, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748011542
@@ -6442,7 +6442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.5952759, y: -1.5572052}
+  m_AnchoredPosition: {x: 2.5952148, y: -1.5572205}
   m_SizeDelta: {x: -50.8677, y: -40.4865}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1858879934
@@ -6627,7 +6627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.30651167, y: 0.5}
   m_AnchorMax: {x: 0.70000005, y: 0.6383408}
-  m_AnchoredPosition: {x: -1.5000305, y: 1.5}
+  m_AnchoredPosition: {x: -1.5, y: 1.5}
   m_SizeDelta: {x: 0.57170105, y: -6.2847977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1886158990
@@ -7011,7 +7011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.55719, y: -0.5189972}
+  m_AnchoredPosition: {x: -1.5571289, y: -0.5189972}
   m_SizeDelta: {x: -48.7916, y: -42.5627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1976326189
@@ -7422,7 +7422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.55719, y: -0.5189972}
+  m_AnchoredPosition: {x: -1.5571289, y: -0.5189972}
   m_SizeDelta: {x: -48.7916, y: -42.5627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2111594057
@@ -7557,7 +7557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.55719, y: -0.5189972}
+  m_AnchoredPosition: {x: -1.5571289, y: -0.51898193}
   m_SizeDelta: {x: -48.7916, y: -42.5627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113851849
@@ -9114,10 +9114,14 @@ GameObject:
   - component: {fileID: 3759593533201445535}
   - component: {fileID: 3759593533208862029}
   - component: {fileID: 3759593533208862030}
+  - component: {fileID: 3759593533208862035}
   - component: {fileID: 3759593533208862031}
   - component: {fileID: 3759593533208862034}
+  - component: {fileID: 3759593533208862036}
+  - component: {fileID: 3759593533208862037}
   - component: {fileID: 3759593533208862033}
   - component: {fileID: 3759593533208862032}
+  - component: {fileID: 3759593533208862038}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -9696,10 +9700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5788dd0a83bad45a4ed59f5f47f510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _maxEndurance: 100
-  _increaseEndurancePerSec: 5
-  _increaseHealthPerSec: 2
+  _health: {fileID: 3759593533208862035}
+  _endurance: {fileID: 3759593533208862036}
+  _playerWallet: {fileID: 3759593533208862037}
 --- !u!114 &3759593533208862031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9714,7 +9717,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedMove: 2.5
   _speedRotate: 250
-  _player: {fileID: 3759593533208862030}
 --- !u!136 &3759593533208862032
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9761,4 +9763,59 @@ MonoBehaviour:
   - {fileID: 1102833251}
   _leftHand: {fileID: 3759593533201445505}
   _rightHand: {fileID: 3759593533201445517}
+  _endurance: {fileID: 3759593533208862036}
+--- !u!114 &3759593533208862035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759593533201477375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb43ca4d77747b341883edd0d62e3b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 100
+  _increaseValuePerSec: 3
+--- !u!114 &3759593533208862036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759593533201477375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73d84a6f085c9c4a812312079a4a0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 100
+  _increaseValuePerSec: 5
+--- !u!114 &3759593533208862037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759593533201477375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a34db6842da11348bb155e381e57e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3759593533208862038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759593533201477375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91428d96405af5144a38c6473ec25eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 3759593533208862031}
+  _playerWeapon: {fileID: 3759593533208862034}
   _player: {fileID: 3759593533208862030}

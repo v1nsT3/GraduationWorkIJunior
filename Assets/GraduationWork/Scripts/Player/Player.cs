@@ -7,88 +7,53 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _maxEndurance;
-    [SerializeField] private float _increaseEndurancePerSec;
-    [SerializeField] private float _increaseHealthPerSec;
+    [SerializeField] private Health _health;
+    [SerializeField] private Endurance _endurance;
+    [SerializeField] private PlayerWallet _playerWallet;
 
+    private float _durationDyingPerSec = 5;
     private PlayerWeapon _playerWeapon;
-    private float _currentHealth;
     private Animator _animator;
-    private float _currentEndurance;
-    private int _coins;
     private Coroutine _dieCoroutine;
 
-    public int Coins => _coins;
-    public float CurrentHealth => _currentHealth;
+    public bool IsDead => _health.IsDead;
 
-    public event UnityAction<float, float> ChangeHealth;
-    public event UnityAction<float, float> ChangeEndurance;
-    public event UnityAction<int> CoinsChanged;
     public event UnityAction Died;
-
-    private void OnEnable()
-    {
-        _playerWeapon.EnduranceSpented += OnDecreaseEndurance;
-        _playerWeapon.WeaponBuyed += OnReduceCoins;
-    }
-
-    private void OnDisable()
-    {
-        _playerWeapon.EnduranceSpented -= OnDecreaseEndurance;
-        _playerWeapon.WeaponBuyed -= OnReduceCoins;
-    }
 
     private void Awake()
     {
         _playerWeapon = GetComponent<PlayerWeapon>();
     }
 
+    private void OnEnable()
+    {
+        _health.ChangedValue += OnHealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        _health.ChangedValue -= OnHealthChanged;
+    }
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _currentHealth = _maxHealth;
-        _currentEndurance = _maxEndurance;
-    }
-
-    private void Update()
-    {
-        if (_currentHealth <= 0)
-            return;
-
-        if (_currentEndurance < _maxEndurance)
-        {
-            _currentEndurance = Mathf.MoveTowards(_currentEndurance, _maxEndurance, Time.deltaTime * _increaseEndurancePerSec);
-            ChangeEndurance?.Invoke(_currentEndurance, _maxEndurance);
-        }
-
-        if (_currentHealth < _maxHealth)
-        {
-            _currentHealth = Mathf.MoveTowards(_currentHealth, _maxEndurance, Time.deltaTime * _increaseHealthPerSec);
-            ChangeHealth?.Invoke(_currentHealth, _maxHealth);
-        }
-    }
-
-    private void OnDecreaseEndurance(float value)
-    {
-        _currentEndurance -= value;
-        ChangeEndurance?.Invoke(_currentEndurance, _maxEndurance);
     }
 
     public void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
-
-        if (_currentHealth <= 0)
-            Die();
-
-        ChangeHealth?.Invoke(_currentHealth, _maxHealth);
+        _health.TakeDamage(damage);
     }
 
-    public void AddCoins(int coins)
+    public void TryBuyWeapon(Weapon weapon)
     {
-        _coins += coins;
-        CoinsChanged?.Invoke(_coins);
+        _playerWeapon.TryBuyWeapon(weapon, _playerWallet);
+    }
+
+    private void OnHealthChanged(float value, float maxValue)
+    {
+        if (value == 0)
+            Die();
     }
 
     private void Die()
@@ -103,23 +68,9 @@ public class Player : MonoBehaviour
 
     private IEnumerator DiedDelay()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(_durationDyingPerSec);
         Died?.Invoke();
         _dieCoroutine = null;
-    }
-
-    public bool TryGetEndurance(float value)
-    {
-        if (value <= _currentEndurance)
-            return true;
-
-        return false;
-    }
-
-    private void OnReduceCoins(int coins)
-    {
-        _coins -= coins;
-        CoinsChanged?.Invoke(_coins);
     }
 
     public void Restart()
@@ -127,11 +78,9 @@ public class Player : MonoBehaviour
         _animator.SetBool(AnimatorController.Params.IsDied, false);
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.identity;
-        _coins = 0;
-        _currentEndurance = _maxEndurance;
-        _currentHealth = _maxHealth;
-        ChangeHealth?.Invoke(_currentHealth, _maxHealth);
-        ChangeEndurance?.Invoke(_currentEndurance, _maxEndurance);
-        _playerWeapon.ResetWeapon();
+        _endurance.Restart();
+        _health.Restart();
+        _playerWallet.Restart();
+        _playerWeapon.Restart();
     }
 }

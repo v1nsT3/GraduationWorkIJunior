@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private Transform _container;
     [SerializeField] private List<Weapon> _weapons = new List<Weapon>();
     [SerializeField] private WeaponView _weaponView;
-    [SerializeField] private PlayerWeapon _playerWeapon;
+    [SerializeField] private Player _player;
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public class Shop : MonoBehaviour
 
     private void OnSellButtonClick(WeaponView weaponView, Weapon weapon)
     {
-        _playerWeapon.TryBuyWeapon(weapon);
+        _player.TryBuyWeapon(weapon);
         weaponView.SellButtonClick -= OnSellButtonClick;
     }
 }

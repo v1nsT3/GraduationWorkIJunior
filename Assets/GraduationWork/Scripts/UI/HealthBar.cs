@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class HealthBar : Bar
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private Health _health;
 
     private void OnEnable()
     {
-        _player.ChangeHealth += OnChangeValue;
+        _health.ChangedValue += OnChangeValue;
     }
 
     private void OnDisable()
     {
-        _player.ChangeHealth -= OnChangeValue;
+        _health.ChangedValue -= OnChangeValue;
     }
 }

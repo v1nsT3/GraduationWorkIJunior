@@ -3,19 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class TargetDieTransition : Transition
 {
-    private void OnEnable()
+    private void Update()
     {
-        Target.ChangeHealth += OnTargetHealthChanged;
-    }
-
-    private void OnDisable()
-    {
-        Target.ChangeHealth -= OnTargetHealthChanged;
-    }
-
-    private void OnTargetHealthChanged(float value, float maxValue)
-    {
-        if(value <= 0)
+        if (Target.IsDead)
+        {
             NeedTransit = true;
+        }
     }
 }

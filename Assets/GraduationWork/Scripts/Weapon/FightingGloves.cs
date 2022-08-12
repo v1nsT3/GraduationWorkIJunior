@@ -9,7 +9,6 @@ public class FightingGloves : Weapon
 
     private int _gloveCount = 2;
     
-
     private void OnEnable()
     {
         if(_gloves.Count == 0)
